@@ -1,59 +1,78 @@
-# InsurancePolicyFrontend
+# Insurance Policy Frontend - Angular Client
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+This Angular application is designed to interface with the **Insurance Policy API** [insurance-API](https://github.com/jck-bit/InsurancePolicyAPI?tab=readme-ov-file#local-endpoints-and-usage) 
 
-## Development server
+## Table of Contents
 
-To start a local development server, run:
+- [Project Overview](#project-overview)
+- [Technologies](#technologies)
+- [Prerequisites](#prerequisites)
+- [Setting Up Locally](#setting-up-locally)
+  - [Clone the Repository](#clone-the-repository)
+  - [Navigate to the project](#navigate-to-the-project)
+  - [Install Dependencies](#install-dependencies)
+  - [Run the Application Locally](#run-the-application-locally)
+- [Usage](#usage)
+- [Contributing](#contributing)
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Project Overview
 
-## Code scaffolding
+It provides a user-friendly interface to interact with the backend API, allowing the following functionalities:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- View a list of insurance policies
+- Create a new insurance policy
+- Update an existing policy
+- Delete a policy
 
-```bash
-ng generate component component-name
-```
+If you wish to view the Deployed Version of the App, You can Review it [here](https://insurance-policy-frontend.vercel.app/)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+If you want to set up the Project Locally ,Follwow the instructions given below.
 
-```bash
-ng generate --help
-```
+## Technologies
 
-## Building
+- **Angular**: Frontend framework
+- **Tailwind css**: CSS framework for responsive design
+- **RxJS**: Reactive programming for managing asynchronous data
+- **HTTP Client**: To communicate with the backend API
 
-To build the project run:
+## Prerequisites
 
-```bash
-ng build
-```
+Before running the project locally, ensure you have the following software installed:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Node.js**: [Download Node.js](https://nodejs.org/)
 
-## Running unit tests
+- **Angular CLI**: Install via npm:
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Setting Up Locally
 
-```bash
-ng test
-```
+1. ### Clone The repository
+   ```bash
+   git clone https://github.com/jck-bit/insurance-policy-frontend.git
+   ```
 
-## Running end-to-end tests
+2. ### Navigate to the  project 
+      ```bash
+      cd insurance-policy-frontend
+      ```
 
-For end-to-end (e2e) testing, run:
+3. ### Install Dependencies
+    ```bash
+    npm install
+    ````
 
-```bash
-ng e2e
-```
+4. Run the App Locally
+    ```bash
+    ng serve
+    ```
+By default, the application will run at 
+ ``http://localhost:4200``
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+## Usage
+The application will start and you should see it on port 4200 on your browser. 
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
