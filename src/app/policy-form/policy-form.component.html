@@ -1,0 +1,112 @@
+<div class="fixed inset-0 bg-gray-600 bg-opacity-50 z-50 flex justify-center items-center">
+  <div class="bg-white p-8 rounded-lg max-w-lg w-full relative">
+    <button
+      (click)="closeForm()"
+      class="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full"
+    >
+      &times;
+    </button>
+
+    <h2 class="text-xl font-semibold mb-4">
+      {{ editMode ? "Edit Policy" : "Add New Policy" }}
+    </h2>
+
+    <!-- Form and its submission handling -->
+    <form #policyForm="ngForm" (ngSubmit)="savePolicy()">
+      <!-- Policy Name -->
+      <div class="mb-4">
+        <label for="name" class="block text-gray-700">Policy Name</label>
+        <input
+          type="text"
+          id="name"
+          [(ngModel)]="policy.name"
+          name="name"
+          required
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+          #name="ngModel"
+        />
+        <div *ngIf="name.invalid && name.touched" class="text-red-500 text-sm">
+          Policy Name is required.
+        </div>
+      </div>
+
+      <!-- Policy Type -->
+      <div class="mb-4">
+        <label for="type" class="block text-gray-700">Type</label>
+        <select
+          id="type"
+          [(ngModel)]="policy.type"
+          name="type"
+          required
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+          #type="ngModel"
+        >
+          <option value="Life">Life</option>
+          <option value="Health">Health</option>
+          <option value="Vehicle">Vehicle</option>
+          <option value="Universal Life">Universal Life Insurance</option>
+        </select>
+        <div *ngIf="type.invalid && type.touched" class="text-red-500 text-sm">
+          Type is required.
+        </div>
+      </div>
+
+      <!-- Premium -->
+      <div class="mb-4">
+        <label for="premium" class="block text-gray-700">Premium</label>
+        <input
+          type="number"
+          id="premium"
+          [(ngModel)]="policy.premium"
+          name="premium"
+          required
+          min="500"
+          step="any"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+          #premium="ngModel"
+        />
+        <div *ngIf="premium.invalid && premium.touched" class="text-red-500 text-sm">
+          Premium is required and must be KES 500 and above.
+        </div>
+      </div>
+
+      <!-- Coverage -->
+      <div class="mb-4">
+        <label for="coverage" class="block text-gray-700">Coverage</label>
+        <input
+          type="number"
+          id="coverage"
+          [(ngModel)]="policy.coverage"
+          name="coverage"
+          required
+          min="0"
+          step="any"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+          #coverage="ngModel"
+        />
+        <div *ngIf="coverage.invalid && coverage.touched" class="text-red-500 text-sm">
+          Coverage is required and must be a valid number.
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="flex justify-between gap-4">
+        <button
+          type="submit"
+          class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-lg"
+          [ngClass]="{'opacity-50 cursor-not-allowed': !policyForm.valid}"
+          [disabled]="!policyForm.valid"
+        >
+          {{ editMode ? "Update" : "Add" }} Policy
+        </button>
+        <button
+          type="button"
+          (click)="closeForm()"
+          class="bg-gray-600 hover:bg-gray-700 text-white font-semibold px-6 py-2 rounded-lg"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
