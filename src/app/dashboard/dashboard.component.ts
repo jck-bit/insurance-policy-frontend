@@ -22,6 +22,8 @@ export class DashboardComponent {
   filterType: string = 'all';
   errorMessage: string = '';
   successMessage: string = '';
+  loading:boolean = false;
+
 
   constructor(private policyService: PolicyService) {}
 
@@ -48,6 +50,7 @@ export class DashboardComponent {
   }
 
   loadPolicies(): void {
+    this.loading = true;
     this.policyService.getPolicies().pipe(
       catchError((error) => {
         this.errorMessage = 'Error loading policies: ' + error.message;
@@ -55,6 +58,7 @@ export class DashboardComponent {
       })
     ).subscribe((data) => {
       this.policies = data;
+      this.loading = false;
     });
   }
 
