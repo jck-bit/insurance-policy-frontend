@@ -37,6 +37,11 @@
     </button>
   </div>
 
+  <div *ngIf="loading" class="text-center text-white py-6">
+    <div class="loader"></div> 
+    Loading policies...
+  </div>
+
   <!-- Policies List -->
   <div class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
     <div
